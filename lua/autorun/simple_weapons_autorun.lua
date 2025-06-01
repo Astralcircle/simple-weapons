@@ -12,40 +12,6 @@ else
 	CreateClientConVar("simple_weapons_vm_offset_x", 0, true, false, "The forward/back offset to use for viewmodels.")
 	CreateClientConVar("simple_weapons_vm_offset_y", 0, true, false, "The left/right offset to use for viewmodels.")
 	CreateClientConVar("simple_weapons_vm_offset_z", 0, true, false, "The up/down offset to use for viewmodelss.")
-end
-
-if CLIENT then
-	local entMeta = FindMetaTable("Entity")
-	local plyMeta = FindMetaTable("Player")
-
-	local isValid = entMeta.IsValid
-	local isDormant = entMeta.IsDormant
-	local inVehicle = plyMeta.InVehicle
-	local getWeapon = plyMeta.GetActiveWeapon
-
-	hook.Add("PostDrawTranslucentRenderables", "simple_base", function(depth, skybox, skybox3d)
-		if skybox or skybox3d then
-			return
-		end
-
-		for _, ply in player.Iterator() do
-			if isDormant(ply) or inVehicle(ply) then
-				continue
-			end
-
-			local weapon = getWeapon(ply)
-
-			if not isValid(weapon) or isDormant(weapon) or not weapon.SimpleWeapon then
-				continue
-			end
-
-			if not weapon.PostDrawTranslucentRenderables then
-				continue
-			end
-
-			weapon:PostDrawTranslucentRenderables()
-		end
-	end)
 
 	hook.Add("PopulateToolMenu", "simple_weapons", function()
 		spawnmenu.AddToolMenuOption("Utilities", "User", "simple_weapons_cl", "Simple Weapons", "", "", function(pnl)
