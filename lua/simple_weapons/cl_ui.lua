@@ -69,17 +69,6 @@ hook.Add("PopulateToolMenu", "simple_weapons", function()
 
 		pnl:CheckBox("Allow reloading while lowered", "simple_weapons_lowered_reloads")
 
-		pnl:AddControl("ComboBox", {
-			Label = "Infinite Ammo",
-			MenuButton = 0,
-			CVars = {"simple_weapons_infinite_ammo"},
-			Options = {
-				["1. Disabled"] = {simple_weapons_infinite_ammo = 0},
-				["2. Enabled"] = {simple_weapons_infinite_ammo = 1},
-				["3. Bottomless magazines"] = {simple_weapons_infinite_ammo = 2}
-			}
-		})
-
 		pnl:NumSlider("Damage multiplier", "simple_weapons_damage_mult", 0.1, 4, 1)
 		pnl:NumSlider("NPC Damage multiplier", "simple_weapons_npc_damage_mult", 0.1, 2, 1)
 		pnl:NumSlider("Range multiplier", "simple_weapons_range_mult", 0, 4, 1)

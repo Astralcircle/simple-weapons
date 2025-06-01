@@ -18,10 +18,6 @@ end
 function SWEP:ConsumeAmmo()
 	if self.AmmoType == AMMO_NONE then
 		return
-	elseif self.AmmoType == AMMO_NORMAL and InfiniteAmmo:GetInt() == 2 then
-		return
-	elseif self.AmmoType == AMMO_NOMAG and InfiniteAmmo:GetInt() != 0 then
-		return
 	end
 
 	local primary = self.Primary
