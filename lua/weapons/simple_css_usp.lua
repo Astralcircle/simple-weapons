@@ -5,7 +5,7 @@ DEFINE_BASECLASS("simple_base")
 SWEP.Base = "simple_base"
 
 SWEP.PrintName = "USP-S"
-SWEP.Category = "Simple Weapons: Counter-Strike: Source"
+SWEP.Category = "Counter-Strike: Source"
 
 SWEP.CSMuzzleFlashes = true
 

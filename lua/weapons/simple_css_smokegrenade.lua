@@ -9,7 +9,7 @@ game.AddAmmoType({name = "simple_css_smokegrenade", maxcarry = 5})
 SWEP.Base = "simple_base_throwing"
 
 SWEP.PrintName = "Smoke Grenade"
-SWEP.Category = "Simple Weapons: Counter-Strike: Source"
+SWEP.Category = "Counter-Strike: Source"
 
 SWEP.Slot = 4
 

@@ -3,7 +3,7 @@ AddCSLuaFile()
 SWEP.Base = "simple_base_scoped"
 
 SWEP.PrintName = "G3SG1"
-SWEP.Category = "Simple Weapons: Counter-Strike: Source"
+SWEP.Category = "Counter-Strike: Source"
 
 SWEP.CSMuzzleFlashes = true
 

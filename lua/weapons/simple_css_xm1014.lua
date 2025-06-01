@@ -3,7 +3,7 @@ AddCSLuaFile()
 SWEP.Base = "simple_base"
 
 SWEP.PrintName = "XM1014"
-SWEP.Category = "Simple Weapons: Counter-Strike: Source"
+SWEP.Category = "Counter-Strike: Source"
 
 SWEP.CSMuzzleFlashes = true
 

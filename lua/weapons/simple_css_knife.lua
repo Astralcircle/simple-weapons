@@ -5,7 +5,7 @@ DEFINE_BASECLASS("simple_base_melee")
 SWEP.Base = "simple_base_melee"
 
 SWEP.PrintName = "Knife"
-SWEP.Category = "Simple Weapons: Counter-Strike: Source"
+SWEP.Category = "Counter-Strike: Source"
 
 SWEP.Slot = 0
 

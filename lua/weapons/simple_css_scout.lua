@@ -5,7 +5,7 @@ DEFINE_BASECLASS("simple_base_scoped")
 SWEP.Base = "simple_base_scoped"
 
 SWEP.PrintName = "Steyr Scout"
-SWEP.Category = "Simple Weapons: Counter-Strike: Source"
+SWEP.Category = "Counter-Strike: Source"
 
 SWEP.CSMuzzleFlashes = true
 
