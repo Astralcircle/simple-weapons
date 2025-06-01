@@ -113,10 +113,7 @@ function SWEP:FireWeapon()
 		TracerName = primary.TracerName,
 		Tracer = primary.TracerName == "" and 0 or primary.TracerFrequency,
 		Force = damage * 0.25,
-		Damage = damage,
-		Callback = function(attacker, tr, dmginfo)
-			dmginfo:ScaleDamage(self:GetDamageFalloff(tr.StartPos:Distance(tr.HitPos)))
-		end
+		Damage = damage
 	}
 
 	self:ModifyBulletTable(bullet)

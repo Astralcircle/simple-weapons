@@ -90,10 +90,5 @@ hook.Add("PopulateToolMenu", "simple_weapons", function()
 		pnl:NumSlider("NPC Damage multiplier", "simple_weapons_npc_damage_mult", 0.1, 2, 1)
 		pnl:NumSlider("Range multiplier", "simple_weapons_range_mult", 0, 4, 1)
 		pnl:NumSlider("Recoil multiplier", "simple_weapons_recoil_mult", 0, 2, 1)
-
-		pnl:Help("Weapons will always do at least this much damage regardless of the distance they're fired at.")
-		pnl:NumSlider("Minimum damage", "simple_weapons_min_damage", 0, 1, 2)
-
-		pnl:NumSlider("Damage falloff modifier", "simple_weapons_falloff_mult", 0.01, 10, 2)
 	end)
 end)
