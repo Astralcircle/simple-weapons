@@ -99,7 +99,7 @@ include("simple_weapons/sh_enums.lua")
 include("simple_weapons/sh_hooks.lua")
 
 if SERVER then
-	resource.AddWorkshop("2821865508")
+	resource.AddWorkshop("3491214981")
 	AddCSLuaFile("simple_weapons/cl_ui.lua")
 else
 	include("simple_weapons/cl_ui.lua")
