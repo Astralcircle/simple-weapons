@@ -1,7 +1,5 @@
 AddCSLuaFile()
 
-simple_weapons.Include("Convars")
-
 -- Firing
 function SWEP:GetDelay()
 	local firemode = self:GetFiremode()
@@ -24,6 +22,8 @@ function SWEP:GetDelay()
 	return delay
 end
 
+local NPCDamageMult, DamageMult = GetConVar("simple_weapons_npc_damage_mult"), GetConVar("simple_weapons_damage_mult")
+
 function SWEP:GetDamage()
 	if self:GetOwner():IsNPC() then
 		return self.Primary.Damage * NPCDamageMult:GetFloat()
@@ -31,6 +31,8 @@ function SWEP:GetDamage()
 		return self.Primary.Damage * DamageMult:GetFloat()
 	end
 end
+
+local RangeMult = GetConVar("simple_weapons_range_mult")
 
 function SWEP:GetRange()
 	return self.Primary.Range * RangeMult:GetFloat(), self.Primary.Accuracy
@@ -52,6 +54,8 @@ function SWEP:GetSpread(range, accuracy)
 end
 
 -- Recoil
+local RecoilMult = GetConVar("simple_weapons_recoil_mult")
+
 function SWEP:GetRecoilMultiplier()
 	return math.tan(self:GetFOV() * (math.pi / 360)) * RecoilMult:GetFloat() * self:GetZoom()
 end

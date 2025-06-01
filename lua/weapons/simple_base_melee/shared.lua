@@ -1,7 +1,5 @@
 AddCSLuaFile()
 
-simple_weapons.Include("Convars")
-
 SWEP.Base = "weapon_base"
 
 SWEP.m_WeaponDeploySpeed = 1
@@ -130,6 +128,7 @@ if CLIENT then
 		return false
 	end
 
+	local VMOffsetX, VMOffsetY, VMOffsetZ = GetConVar("simple_weapons_vm_offset_x"), GetConVar("simple_weapons_vm_offset_y"), GetConVar("simple_weapons_vm_offset_z")
 	local ease = math.ease.OutBack
 
 	function SWEP:GetViewModelPosition(pos, ang)

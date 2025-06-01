@@ -2,8 +2,6 @@ AddCSLuaFile()
 
 DEFINE_BASECLASS("weapon_base")
 
-simple_weapons.Include("Convars")
-
 function SWEP:TranslateFOV(fov)
 	if not IsValid(self:GetOwner()) then
 		return fov
@@ -15,6 +13,8 @@ function SWEP:TranslateFOV(fov)
 
 	return fov
 end
+
+local SwayScale, BobScale = GetConVar("simple_weapons_swayscale"), GetConVar("simple_weapons_bobscale")
 
 function SWEP:HandleViewModel()
 	if CLIENT then
@@ -31,6 +31,8 @@ if CLIENT then
 
 		return pos, ang - ply:GetViewPunchAngles() * self.Primary.Recoil.Ratio, fov
 	end
+	
+	local VMOffsetX, VMOffsetY, VMOffsetZ  = GetConVar("simple_weapons_vm_offset_x"), GetConVar("simple_weapons_vm_offset_y"), GetConVar("simple_weapons_vm_offset_z")
 
 	function SWEP:GetViewModelPosition(pos, ang)
 		local offset = self.ViewOffset + Vector(VMOffsetX:GetFloat(), VMOffsetY:GetFloat(), VMOffsetZ:GetFloat())

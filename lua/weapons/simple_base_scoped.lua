@@ -1,7 +1,5 @@
 AddCSLuaFile()
 
-simple_weapons.Include("Convars")
-
 DEFINE_BASECLASS("simple_base")
 
 SWEP.Base = "simple_base"
@@ -34,6 +32,8 @@ function SWEP:Holster()
 
 	return BaseClass.Holster(self)
 end
+
+local RangeMult = GetConVar("simple_weapons_range_mult")
 
 function SWEP:GetRange()
 	local range = self.Primary.Range
@@ -92,6 +92,8 @@ function SWEP:AltFire()
 end
 
 if CLIENT then
+	local UseScopes = GetConVar("simple_weapons_scopes")
+
 	function SWEP:PreDrawViewModel(vm, _, ply)
 		if not self.UseScope or not self.HideInScope then
 			return

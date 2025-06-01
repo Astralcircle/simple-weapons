@@ -1,7 +1,5 @@
 AddCSLuaFile()
 
-simple_weapons.Include("Convars")
-
 function SWEP:HasCameraControl()
 	local ply = self:GetOwner()
 

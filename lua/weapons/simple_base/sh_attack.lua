@@ -1,7 +1,5 @@
 AddCSLuaFile()
 
-simple_weapons.Include("Convars")
-
 -- Primary fire
 function SWEP:CanPrimaryFire()
 	if self:HandleAutoRaise() or self:HandleReloadAbort() then

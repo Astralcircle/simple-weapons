@@ -1,7 +1,5 @@
 AddCSLuaFile()
 
-simple_weapons.Include("Convars")
-
 function SWEP:GetDelay(heavy, hit, trace)
 	local tab = heavy and self.Primary.Heavy or self.Primary.Light
 
@@ -38,6 +36,8 @@ function SWEP:PlayAttackSound(heavy, hit, trace)
 		self:EmitSound(snd)
 	end
 end
+
+local DamageMult = GetConVar("simple_weapons_npc_damage_mult"), GetConVar("simple_weapons_damage_mult")
 
 function SWEP:GetDamage(heavy, trace)
 	local tab = heavy and self.Primary.Heavy or self.Primary.Light

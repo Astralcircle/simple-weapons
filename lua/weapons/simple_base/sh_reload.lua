@@ -1,7 +1,5 @@
 AddCSLuaFile()
 
-simple_weapons.Include("Convars")
-
 function SWEP:HandleReloadAbort()
 	if self:IsReloading() then
 		if self.Primary.Reload.Shotgun then

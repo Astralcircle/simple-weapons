@@ -1,7 +1,5 @@
 AddCSLuaFile()
 
-simple_weapons.Include("Convars")
-
 function SWEP:GetAmmoType()
 	if self.Primary.Ammo == "" and self.Primary.ClipSize == -1 then
 		return 0
