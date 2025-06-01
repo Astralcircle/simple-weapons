@@ -65,13 +65,7 @@ hook.Add("PopulateToolMenu", "simple_weapons", function()
 		pnl:Help("When enabled classic mode will disable the limited movement and raise/lower system.")
 		pnl:CheckBox("Classic mode", "simple_weapons_classic_mode")
 
-		pnl:CheckBox("Replace weapons", "simple_weapons_replace_weapons")
-
 		pnl:NumSlider("Ready time", "simple_weapons_ready_time", 0, 1, 1)
-
-		pnl:CheckBox("Limit player movement", "simple_weapons_limit_movement")
-
-		pnl:NumSlider("Walk speed limit", "simple_weapons_walk_speed", 100, 200, 1)
 
 		pnl:CheckBox("Allow reloading while lowered", "simple_weapons_lowered_reloads")
 
