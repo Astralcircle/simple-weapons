@@ -48,7 +48,7 @@ if CLIENT then
 	end)
 
 	hook.Add("PopulateToolMenu", "simple_weapons", function()
-		spawnmenu.AddToolMenuOption("Utilities", "User", "simple_weapons_cl", "Simple Weapons", "", "", function(panel)
+		spawnmenu.AddToolMenuOption("Utilities", "User", "simple_weapons_cl", "Simple Weapons", "", "", function(pnl)
 			pnl:Help("Configure you're weapons here")
 
 			local convars = {
