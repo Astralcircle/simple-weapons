@@ -1,9 +1,10 @@
+CreateConVar("simple_weapons_damage_mult", 1, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The damage modifier to use for weapons.", 0)
+CreateConVar("simple_weapons_npc_damage_mult", 0.5, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The damage modifier to use for weapons when held by NPC's.", 0)
+CreateConVar("simple_weapons_range_mult", 1, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The range modifier to use for weapons.", 0)
+CreateConVar("simple_weapons_recoil_mult", 1, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The recoil modifier to use for weapons.", 0)
+
 if SERVER then
 	resource.AddWorkshop("3491214981")
-	CreateConVar("simple_weapons_damage_mult", 1, FCVAR_ARCHIVE, "The damage modifier to use for weapons.", 0)
-	CreateConVar("simple_weapons_npc_damage_mult", 0.5, FCVAR_ARCHIVE, "The damage modifier to use for weapons when held by NPC's.", 0)
-	CreateConVar("simple_weapons_range_mult", 1, FCVAR_ARCHIVE, "The range modifier to use for weapons.", 0)
-	CreateConVar("simple_weapons_recoil_mult", 1, FCVAR_ARCHIVE, "The recoil modifier to use for weapons.", 0)
 else
 	local simple_weapons_auto_reload = CreateClientConVar("simple_weapons_auto_reload", 1, true, true, "Whether weapons should automatically reload when you fire them.")
 	local simple_weapons_scopes = CreateClientConVar("simple_weapons_scopes", 1, true, false, "Whether to use scopes when zooming.")
