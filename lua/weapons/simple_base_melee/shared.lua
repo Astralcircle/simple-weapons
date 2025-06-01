@@ -216,20 +216,6 @@ if CLIENT then
 	end
 end
 
-function SWEP:SetupMove(ply, mv)
-	local fraction = self.ClassicMode and 1 or self:GetLowerFraction()
-
-	if fraction == 1 then
-		return
-	end
-
-	local speed = math.Remap(fraction, 0, 1, ply:GetWalkSpeed(), ply:GetRunSpeed())
-
-	if mv:GetForwardSpeed() <= 0 then
-		mv:SetMaxClientSpeed(speed)
-	end
-end
-
 function SWEP:OnRestore()
 	self:SetLowerTime(0)
 	self:SetNextIdle(CurTime())

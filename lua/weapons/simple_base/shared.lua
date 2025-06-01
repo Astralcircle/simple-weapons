@@ -96,10 +96,6 @@ if SERVER then
 	include("sv_npc.lua")
 end
 
-if engine.ActiveGamemode() == "terrortown" then
-	include("sh_ttt.lua")
-end
-
 function SWEP:Initialize()
 	self:SetFiremode(self.Firemode)
 
@@ -314,28 +310,6 @@ function SWEP:OnRemove()
 	if IsValid(ply) and ply:IsPlayer() then
 		ply:SetFOV(0, 0, self)
 	end
-end
-
-function SWEP:SetupMove(ply, mv)
-	local fraction = ClassicMode:GetBool() and 1 or self:GetLowerFraction()
-	local min = hook.Run("SimpleLimitMoveSpeed", ply, self)
-
-	if fraction == 1 then
-		return
-	end
-
-	if not min then
-		min = WalkSpeed:GetFloat()
-
-		if ply:Crouching() then
-			min = math.min(min, ply:GetWalkSpeed() * ply:GetCrouchedWalkSpeed())
-		end
-	end
-
-	local speed = math.Remap(fraction, 0, 1, min, ply:GetRunSpeed())
-
-	mv:SetMaxSpeed(speed)
-	mv:SetMaxClientSpeed(speed)
 end
 
 function SWEP:OnRestore()
