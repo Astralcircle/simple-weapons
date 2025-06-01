@@ -2,21 +2,13 @@ AddCSLuaFile()
 
 module("simple_weapons.Convars", package.seeall)
 
-ReadyTime = CreateConVar("simple_weapons_ready_time", 0.4, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The amount of time it takes to raise/lower weapons.", 0)
-
-LoweredReloads = CreateConVar("simple_weapons_lowered_reloads", 1, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "Whether weapons can be reloaded when lowered.", 0, 1)
-
 DamageMult = CreateConVar("simple_weapons_damage_mult", 1, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The damage modifier to use for weapons.", 0)
 NPCDamageMult = CreateConVar("simple_weapons_npc_damage_mult", 0.5, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The damage modifier to use for weapons when held by NPC's.", 0)
 RangeMult = CreateConVar("simple_weapons_range_mult", 1, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The range modifier to use for weapons.", 0)
 RecoilMult = CreateConVar("simple_weapons_recoil_mult", 1, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The recoil modifier to use for weapons.", 0)
 
 if CLIENT then
-	NoAutoRaise = CreateClientConVar("simple_weapons_disable_raise", 0, true, true, "Disables left click raising your weapon.", 0, 1)
-
 	AutoReload = CreateClientConVar("simple_weapons_auto_reload", 1, true, true, "Whether weapons should automatically reload when you fire them.")
-
-	AimZoom = CreateClientConVar("simple_weapons_zoom", 1.25, true, true, "The amount of zoom to apply when raising a weapon.", 1, 1.5)
 	UseScopes = CreateClientConVar("simple_weapons_scopes", 1, true, false, "Whether to use scopes when zooming.")
 
 	SwayScale = CreateClientConVar("simple_weapons_swayscale", 1, true, false, "The amount of viewmodel sway to apply to weapons")

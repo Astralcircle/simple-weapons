@@ -79,7 +79,7 @@ function SWEP:CycleScope()
 end
 
 function SWEP:CanAltFire()
-	return not self:GetLowered()
+	return true
 end
 
 function SWEP:AltFire()
@@ -90,7 +90,7 @@ end
 
 if CLIENT then
 	function SWEP:PreDrawViewModel(vm, _, ply)
-		if not self.UseScope or not self.HideInScope or self:GetLowered() then
+		if not self.UseScope or not self.HideInScope then
 			return
 		end
 
@@ -101,7 +101,7 @@ if CLIENT then
 		if self.UseScope and self:GetScopeIndex() != 0 and UseScopes:GetBool() then
 			return self:GetLowered()
 		else
-			return self:GetLowered() or self:IsReloading()
+			return self:IsReloading()
 		end
 	end
 

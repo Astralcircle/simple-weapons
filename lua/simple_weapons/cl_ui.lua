@@ -39,11 +39,7 @@ end
 
 hook.Add("PopulateToolMenu", "simple_weapons", function()
 	simple_weapons.CreateOptionsMenu(REALM_CLIENT, "simple_weapons_cl", "Base", simple_weapons.Convars, function(pnl)
-		pnl:CheckBox("Disable left click raising", "simple_weapons_disable_raise")
-
 		pnl:CheckBox("Auto reload when empty", "simple_weapons_auto_reload")
-
-		pnl:NumSlider("Aim focus (zoom)", "simple_weapons_zoom", 1, 1.5, 2)
 
 		pnl:CheckBox("Draw scopes", "simple_weapons_scopes")
 
@@ -62,10 +58,6 @@ hook.Add("PopulateToolMenu", "simple_weapons", function()
 	end)
 
 	simple_weapons.CreateOptionsMenu(REALM_SERVER, "simple_weapons_sv", "Base", simple_weapons.Convars, function(pnl)
-		pnl:NumSlider("Ready time", "simple_weapons_ready_time", 0, 1, 1)
-
-		pnl:CheckBox("Allow reloading while lowered", "simple_weapons_lowered_reloads")
-
 		pnl:NumSlider("Damage multiplier", "simple_weapons_damage_mult", 0.1, 4, 1)
 		pnl:NumSlider("NPC Damage multiplier", "simple_weapons_npc_damage_mult", 0.1, 2, 1)
 		pnl:NumSlider("Range multiplier", "simple_weapons_range_mult", 0, 4, 1)

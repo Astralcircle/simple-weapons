@@ -63,7 +63,6 @@ include("sh_attack.lua")
 function SWEP:SetupDataTables()
 	self:NetworkVar("Bool", "Lowered")
 
-	self:NetworkVar("Float", "LowerTime")
 	self:NetworkVar("Float", "NextIdle")
 	self:NetworkVar("Float", "ChargeTime")
 end
@@ -74,8 +73,6 @@ function SWEP:AddNetworkVar(...)
 end
 
 function SWEP:Deploy()
-	self:SetLowerTime(0)
-	self:SetLowered(false)
 	self:SetHoldType(self.HoldType)
 	self:SendTranslatedWeaponAnim(ACT_VM_DRAW)
 	self:SetNextIdle(CurTime() + self:SequenceDuration())
@@ -89,40 +86,7 @@ function SWEP:Holster()
 	return true
 end
 
-function SWEP:IsReady()
-	return CurTime() - self:GetLowerTime() >= ReadyTime:GetFloat()
-end
-
-function SWEP:CanLower()
-	return self:IsReady() and self:GetChargeTime() == 0
-end
-
-function SWEP:SetLower(lower)
-	if not self:CanLower() then
-		return false
-	end
-
-	if self:GetLowered() != lower then
-		self:SetLowered(lower)
-		self:SetLowerTime(CurTime())
-
-		self:SetHoldType(lower and self.LowerHoldType or self.HoldType)
-	end
-
-	self.Primary.Automatic = true
-
-	return true
-end
-
 function SWEP:PrimaryAttack()
-	if self:GetLowered() or not self:IsReady() then
-		if self:GetOwner():GetInfoNum("simple_weapons_disable_raise", 0) == 0 then
-			self:SetLower(false)
-		end
-
-		return
-	end
-
 	if self.Primary.ChargeTime == 0 then
 		self.Primary.Automatic = self.Primary.AutoSwing
 		self:LightAttack()
@@ -162,31 +126,17 @@ function SWEP:OnReloaded()
 	self:SetWeaponHoldType(self:GetHoldType())
 end
 
-local easeIn = math.ease.InQuad
-local easeOut = math.ease.OutQuad
-
-function SWEP:GetLowerFraction()
-	local frac = math.Clamp(math.Remap(CurTime() - self:GetLowerTime(), 0, ReadyTime:GetFloat(), 0, 1), 0, 1)
-
-	if self:GetLowered() then
-		return easeOut(frac)
-	else
-		return easeIn(1 - frac)
-	end
-end
-
 if CLIENT then
 	function SWEP:DoDrawCrosshair(x, y)
-		return self:GetLowered()
+		return false
 	end
 
 	local ease = math.ease.OutBack
 
 	function SWEP:GetViewModelPosition(pos, ang)
-		local fraction = self:GetLowerFraction()
 		local offset = Vector(VMOffsetX:GetFloat(), VMOffsetY:GetFloat(), VMOffsetZ:GetFloat())
 
-		pos, ang = LocalToWorld(offset, Angle(fraction * 15, 0, 0), pos, ang)
+		pos, ang = LocalToWorld(offset, Angle(0, 0, 0), pos, ang)
 
 		local charge = self:GetChargeTime()
 
@@ -204,7 +154,6 @@ if CLIENT then
 end
 
 function SWEP:OnRestore()
-	self:SetLowerTime(0)
 	self:SetNextIdle(CurTime())
 	self:SetChargeTime(0)
 end

@@ -105,7 +105,6 @@ end
 function SWEP:SetupDataTables()
 	self:NetworkVar("Entity", "LastOwner")
 
-	self:NetworkVar("Bool", "Lowered")
 	self:NetworkVar("Bool", "NeedPump")
 	self:NetworkVar("Bool", "FirstReload")
 	self:NetworkVar("Bool", "AbortReload")
@@ -113,7 +112,6 @@ function SWEP:SetupDataTables()
 	self:NetworkVar("Int", "Firemode")
 	self:NetworkVar("Int", "BurstFired")
 
-	self:NetworkVar("Float", "LowerTime")
 	self:NetworkVar("Float", "NextIdle")
 	self:NetworkVar("Float", "FinishReload")
 
@@ -143,8 +141,6 @@ function SWEP:OwnerChanged()
 end
 
 function SWEP:Deploy()
-	self:SetLowerTime(0)
-	self:SetLowered(false)
 	self:SetHoldType(self.HoldType)
 	self:SetNextIdle(CurTime() + self:SequenceDuration())
 
@@ -161,37 +157,6 @@ function SWEP:Holster()
 	if IsValid(ply) and ply:IsPlayer() then
 		ply:SetFOV(0, 0.1, self)
 	end
-
-	return true
-end
-
-function SWEP:CanLower()
-	if not self:IsReady() then
-		return false
-	end
-
-	if not LoweredReloads:GetBool() and self:IsReloading() then
-		return false
-	end
-
-	return true
-end
-
-function SWEP:SetLower(lower)
-	if not self:CanLower() then
-		return false
-	end
-
-	if self:GetLowered() != lower then
-		self:SetLowered(lower)
-		self:SetLowerTime(CurTime())
-
-		self:SetHoldType(lower and self.LowerHoldType or self.HoldType)
-
-		self:UpdateFOV(ReadyTime:GetFloat())
-	end
-
-	self.Primary.Automatic = true
 
 	return true
 end
@@ -278,7 +243,6 @@ function SWEP:OnRestore()
 
 	self:SetBurstFired(0)
 
-	self:SetLowerTime(0)
 	self:SetNextIdle(CurTime())
 	self:SetFinishReload(0)
 

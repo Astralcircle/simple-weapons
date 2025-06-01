@@ -55,21 +55,13 @@ function SWEP:SendTranslatedWeaponAnim(act)
 end
 
 function SWEP:TranslateActivity(act)
-	local translated
-
-	if self:GetLowered() and (act == ACT_MP_RELOAD_STAND or act == ACT_MP_RELOAD_CROUCH) and index[self.HoldType] then
-		translated = index[self.HoldType] + 6
-	end
-
-	local custom = self:GetLowered() and self.CustomLowerHoldType or self.CustomHoldType
+	local custom = self.CustomHoldType
 
 	if custom[act] then
 		return custom[act]
 	end
 
-	if not translated then
-		translated = BaseClass.TranslateActivity(self, act)
-	end
+	local translated = BaseClass.TranslateActivity(self, act)
 
 	return replacements[translated] and replacements[translated] or translated
 end

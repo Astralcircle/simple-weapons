@@ -3,23 +3,6 @@ AddCSLuaFile()
 simple_weapons.Include("Convars")
 simple_weapons.Include("Enums")
 
-function SWEP:IsReady()
-	return CurTime() - self:GetLowerTime() >= ReadyTime:GetFloat()
-end
-
-local easeIn = math.ease.InQuad
-local easeOut = math.ease.OutQuad
-
-function SWEP:GetLowerFraction()
-	local frac = math.Clamp(math.Remap(CurTime() - self:GetLowerTime(), 0, ReadyTime:GetFloat(), 0, 1), 0, 1)
-
-	if self:GetLowered() then
-		return easeOut(frac)
-	else
-		return easeIn(1 - frac)
-	end
-end
-
 function SWEP:HasCameraControl()
 	local ply = self:GetOwner()
 

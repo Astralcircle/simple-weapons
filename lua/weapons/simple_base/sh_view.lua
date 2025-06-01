@@ -33,10 +33,9 @@ if CLIENT then
 	end
 
 	function SWEP:GetViewModelPosition(pos, ang)
-		local fraction = self:GetLowerFraction()
 		local offset = self.ViewOffset + Vector(VMOffsetX:GetFloat(), VMOffsetY:GetFloat(), VMOffsetZ:GetFloat())
 
-		pos, ang = LocalToWorld(offset, Angle(fraction * 15, 0, 0), pos, ang)
+		pos, ang = LocalToWorld(offset, Angle(0, 0, 0), pos, ang)
 
 		local ply = self:GetOwner()
 
