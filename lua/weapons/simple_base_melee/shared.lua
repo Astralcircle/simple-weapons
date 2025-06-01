@@ -13,7 +13,6 @@ SWEP.ViewModelFOV = 54
 SWEP.SimpleWeapon = true
 
 SWEP.HoldType = "melee"
-SWEP.LowerHoldType = "normal"
 
 SWEP.Primary.Ammo = ""
 SWEP.Primary.ClipSize = -1

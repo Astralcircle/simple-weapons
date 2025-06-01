@@ -19,7 +19,6 @@ SWEP.ViewModel = Model("models/weapons/cstrike/c_knife_t.mdl")
 SWEP.WorldModel = Model("models/weapons/w_knife_t.mdl")
 
 SWEP.HoldType = "knife"
-SWEP.LowerHoldType = "normal"
 
 SWEP.Primary = {
 	ChargeTime = 0.4,

@@ -19,8 +19,6 @@ SWEP.ViewModel = Model("models/weapons/cstrike/c_pist_fiveseven.mdl")
 SWEP.WorldModel = Model("models/weapons/w_pist_fiveseven.mdl")
 
 SWEP.HoldType = "pistol"
-SWEP.LowerHoldType = "normal"
-
 SWEP.Firemode = 0
 
 SWEP.Primary = {
@@ -34,8 +32,6 @@ SWEP.Primary = {
 
 	Range = 1600,
 	Accuracy = 12,
-
-	RangeModifier = 0.81,
 
 	Recoil = {
 		MinAng = Angle(1.4, -0.3, 0),

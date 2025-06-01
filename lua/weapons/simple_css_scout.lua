@@ -21,8 +21,6 @@ SWEP.ViewModel = Model("models/weapons/cstrike/c_snip_scout.mdl")
 SWEP.WorldModel = Model("models/weapons/w_snip_scout.mdl")
 
 SWEP.HoldType = "ar2"
-SWEP.LowerHoldType = "passive"
-
 SWEP.Firemode = 0
 
 SWEP.Primary = {
@@ -39,8 +37,6 @@ SWEP.Primary = {
 
 	UnscopedRange = 80,
 	UnscopedAccuracy = 12,
-
-	RangeModifier = 0.98,
 
 	Recoil = {
 		MinAng = Angle(2, -0.8, 0),

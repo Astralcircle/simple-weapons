@@ -19,8 +19,6 @@ SWEP.ViewModel = Model("models/weapons/cstrike/c_pist_deagle.mdl")
 SWEP.WorldModel = Model("models/weapons/w_pist_deagle.mdl")
 
 SWEP.HoldType = "revolver"
-SWEP.LowerHoldType = "normal"
-
 SWEP.Firemode = 0
 
 SWEP.Primary = {
@@ -34,8 +32,6 @@ SWEP.Primary = {
 
 	Range = 1000,
 	Accuracy = 12,
-
-	RangeModifier = 0.8,
 
 	Recoil = {
 		MinAng = Angle(2, -0.7, 0),

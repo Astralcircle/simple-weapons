@@ -19,8 +19,6 @@ SWEP.ViewModel = Model("models/weapons/cstrike/c_shot_xm1014.mdl")
 SWEP.WorldModel = Model("models/weapons/w_shot_xm1014.mdl")
 
 SWEP.HoldType = "shotgun"
-SWEP.LowerHoldType = "passive"
-
 SWEP.Firemode = 0
 
 SWEP.Primary = {
@@ -36,8 +34,6 @@ SWEP.Primary = {
 
 	Range = 400,
 	Accuracy = 24,
-
-	RangeModifier = 0.7,
 
 	Recoil = {
 		MinAng = Angle(2, -0.7, 0),

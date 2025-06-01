@@ -19,8 +19,6 @@ SWEP.ViewModel = Model("models/weapons/cstrike/c_rif_aug.mdl")
 SWEP.WorldModel = Model("models/weapons/w_rif_aug.mdl")
 
 SWEP.HoldType = "smg"
-SWEP.LowerHoldType = "passive"
-
 SWEP.Firemode = -1
 
 SWEP.Primary = {
@@ -33,8 +31,6 @@ SWEP.Primary = {
 
 	Range = 1600,
 	Accuracy = 12,
-
-	RangeModifier = 0.98,
 
 	Recoil = {
 		MinAng = Angle(1, -0.4, 0),

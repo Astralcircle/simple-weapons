@@ -21,8 +21,6 @@ SWEP.ViewModel = Model("models/weapons/cstrike/c_pist_elite.mdl")
 SWEP.WorldModel = Model("models/weapons/w_pist_elite.mdl")
 
 SWEP.HoldType = "duel"
-SWEP.LowerHoldType = "normal"
-
 SWEP.Firemode = 0
 
 SWEP.Primary = {
@@ -36,8 +34,6 @@ SWEP.Primary = {
 
 	Range = 700,
 	Accuracy = 12,
-
-	RangeModifier = 0.75,
 
 	Recoil = {
 		MinAng = Angle(1.4, -0.8, 0),

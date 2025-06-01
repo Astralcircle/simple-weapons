@@ -14,10 +14,7 @@ SWEP.ViewModelFOV = 54
 SWEP.SimpleWeapon = true
 
 SWEP.HoldType = "ar2"
-SWEP.LowerHoldType = "passive"
-
 SWEP.CustomHoldType = {}
-SWEP.CustomLowerHoldType = {}
 
 SWEP.Firemode = -1
 
@@ -37,8 +34,6 @@ SWEP.Primary.Spread = Vector(0, 0, 0)
 
 SWEP.Primary.Range = 1000
 SWEP.Primary.Accuracy = 12
-
-SWEP.Primary.RangeModifier = 0.9
 
 SWEP.Primary.Delay = 0.1
 

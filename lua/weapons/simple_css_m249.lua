@@ -19,8 +19,6 @@ SWEP.ViewModel = Model("models/weapons/cstrike/c_mach_m249para.mdl")
 SWEP.WorldModel = Model("models/weapons/w_mach_m249para.mdl")
 
 SWEP.HoldType = "ar2"
-SWEP.LowerHoldType = "passive"
-
 SWEP.Firemode = -1
 
 SWEP.Primary = {
@@ -34,8 +32,6 @@ SWEP.Primary = {
 
 	Range = 700,
 	Accuracy = 12,
-
-	RangeModifier = 0.97,
 
 	Recoil = {
 		MinAng = Angle(0.5, -0.4, 0),

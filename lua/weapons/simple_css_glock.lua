@@ -19,8 +19,6 @@ SWEP.ViewModel = Model("models/weapons/cstrike/c_pist_glock18.mdl")
 SWEP.WorldModel = Model("models/weapons/w_pist_glock18.mdl")
 
 SWEP.HoldType = "pistol"
-SWEP.LowerHoldType = "normal"
-
 SWEP.Firemode = 0
 
 SWEP.Primary = {
@@ -36,8 +34,6 @@ SWEP.Primary = {
 
 	Range = 750,
 	Accuracy = 12,
-
-	RangeModifier = 0.85,
 
 	Recoil = {
 		MinAng = Angle(0.9, -0.3, 0),
