@@ -57,17 +57,7 @@ function SWEP:GetRange()
 end
 
 function SWEP:GetZoom()
-	if self:GetLowered() then
-		return 1
-	end
-
-	local index = self:GetScopeIndex()
-
-	if index == 0 then
-		return ClassicMode:GetBool() and 1 or self:GetOwner():GetInfoNum("simple_weapons_zoom", 1.25)
-	else
-		return istable(self.ScopeZoom) and self.ScopeZoom[index] or self.ScopeZoom
-	end
+	return (self:GetScopeIndex() == 0 and 1) or (istable(self.ScopeZoom) and self.ScopeZoom[index] or self.ScopeZoom)
 end
 
 function SWEP:CycleScope()

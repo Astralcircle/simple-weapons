@@ -2,8 +2,6 @@ AddCSLuaFile()
 
 module("simple_weapons.Convars", package.seeall)
 
-ClassicMode = CreateConVar("simple_weapons_classic_mode", 1, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "Disables the raise/lower system.", 0, 1)
-
 ReadyTime = CreateConVar("simple_weapons_ready_time", 0.4, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "The amount of time it takes to raise/lower weapons.", 0)
 
 LoweredReloads = CreateConVar("simple_weapons_lowered_reloads", 1, {FCVAR_ARCHIVE, FCVAR_REPLICATED}, "Whether weapons can be reloaded when lowered.", 0, 1)

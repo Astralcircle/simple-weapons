@@ -74,18 +74,9 @@ function SWEP:AddNetworkVar(...)
 end
 
 function SWEP:Deploy()
-	self.ClassicMode = ClassicMode:GetBool()
-
 	self:SetLowerTime(0)
-
-	if self.ClassicMode then
-		self:SetLowered(false)
-		self:SetHoldType(self.HoldType)
-	else
-		self:SetLowered(true)
-		self:SetHoldType(self.LowerHoldType)
-	end
-
+	self:SetLowered(false)
+	self:SetHoldType(self.HoldType)
 	self:SendTranslatedWeaponAnim(ACT_VM_DRAW)
 	self:SetNextIdle(CurTime() + self:SequenceDuration())
 
@@ -149,11 +140,7 @@ function SWEP:PrimaryAttack()
 end
 
 function SWEP:SecondaryAttack()
-	if self.ClassicMode then
-		return
-	end
 
-	self:SetLower(not self:GetLowered())
 end
 
 function SWEP:HandleIdle()

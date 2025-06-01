@@ -63,9 +63,5 @@ end
 
 -- Zoom
 function SWEP:GetZoom()
-	if self:GetLowered() or ClassicMode:GetBool() then
-		return 1
-	end
-
-	return self:GetOwner():GetInfoNum("simple_weapons_zoom", 1.25)
+	return 1
 end

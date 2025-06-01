@@ -79,14 +79,6 @@ function SWEP:GetShootDir()
 end
 
 function SWEP:HandleAutoRaise()
-	if not self.ClassicMode and (self:GetLowered() or not self:IsReady()) and not self:IsReloading() then
-		if self:GetOwner():GetInfoNum("simple_weapons_disable_raise", 0) == 0 then
-			self:SetLower(false)
-		end
-
-		return true
-	end
-
 	return false
 end
 
@@ -97,11 +89,7 @@ function SWEP:IsAltFireHeld()
 		return false
 	end
 
-	if ClassicMode:GetBool() then
-		return ply:KeyDown(IN_ATTACK2)
-	else
-		return ply:KeyDown(IN_USE) and ply:KeyDown(IN_ATTACK)
-	end
+	return ply:KeyDown(IN_ATTACK2)
 end
 
 function SWEP:ForceStopFire()

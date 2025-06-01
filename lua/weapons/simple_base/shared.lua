@@ -144,17 +144,9 @@ end
 
 function SWEP:Deploy()
 	self:SetLowerTime(0)
-
-	if ClassicMode:GetBool() then
-		self:SetLowered(false)
-		self:SetHoldType(self.HoldType)
-	else
-		self:SetLowered(true)
-		self:SetHoldType(self.LowerHoldType)
-	end
-
+	self:SetLowered(false)
+	self:SetHoldType(self.HoldType)
 	self:SetNextIdle(CurTime() + self:SequenceDuration())
-	self.ClassicMode = ClassicMode:GetBool()
 
 	return true
 end
@@ -207,12 +199,6 @@ end
 function SWEP:PrimaryAttack()
 	local ply = self:GetOwner()
 
-	if not ClassicMode:GetBool() and ply:IsPlayer() and ply:KeyDown(IN_USE) then
-		self:TryAltFire()
-
-		return
-	end
-
 	if self:GetNextFire() > CurTime() or not self:CanPrimaryFire() then
 		return
 	end
@@ -221,11 +207,7 @@ function SWEP:PrimaryAttack()
 end
 
 function SWEP:SecondaryAttack()
-	if ClassicMode:GetBool() then
-		self:TryAltFire()
-	else
-		self:SetLower(not self:GetLowered())
-	end
+	self:TryAltFire()
 end
 
 function SWEP:HandleIdle()
@@ -274,28 +256,6 @@ function SWEP:Think()
 	self:HandlePump()
 	self:HandleBurst()
 	self:HandleViewModel()
-
-	self:UpdateClassicMode()
-end
-
-function SWEP:UpdateClassicMode()
-	local classic = ClassicMode:GetBool()
-
-	if self.ClassicMode == nil then
-		self:Deploy()
-
-		return
-	end
-
-	if self.ClassicMode != classic then
-		self:SetLowered(false)
-		self:SetLowerTime(0)
-
-		self:UpdateFOV(0.1)
-
-		self:SetHoldType(self.HoldType)
-		self.ClassicMode = ClassicMode:GetBool()
-	end
 end
 
 function SWEP:OnReloaded()
