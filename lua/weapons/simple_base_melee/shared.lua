@@ -93,7 +93,7 @@ function SWEP:PrimaryAttack()
 		return
 	end
 
-	if self:GetChargeTime() != 0 then
+	if self:GetChargeTime() ~= 0 then
 		return
 	end
 
@@ -139,7 +139,7 @@ if CLIENT then
 
 		local charge = self:GetChargeTime()
 
-		if self.Primary.ChargeTime > 0 and charge != 0 then
+		if self.Primary.ChargeTime > 0 and charge ~= 0 then
 			local frac = ease(math.Clamp(math.Remap(CurTime() - charge, 0, self.Primary.ChargeTime * 2, 0, 1), 0, 1))
 
 			local chargePos = LerpVector(frac, vector_origin, self.ChargeOffset.Pos)

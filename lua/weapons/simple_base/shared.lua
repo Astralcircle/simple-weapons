@@ -190,7 +190,7 @@ function SWEP:HandlePump()
 
 		local snd = self.Primary.PumpSound
 
-		if snd != "" and IsFirstTimePredicted() then
+		if snd ~= "" and IsFirstTimePredicted() then
 			self:EmitSound(snd)
 		end
 
@@ -219,7 +219,7 @@ function SWEP:Think()
 end
 
 function SWEP:OnReloaded()
-	if self:GetHoldType() != "" then
+	if self:GetHoldType() ~= "" then
 		self:SetWeaponHoldType(self:GetHoldType())
 	end
 end

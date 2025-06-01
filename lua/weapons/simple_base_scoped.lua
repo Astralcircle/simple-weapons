@@ -76,7 +76,7 @@ function SWEP:CycleScope()
 
 	self:UpdateFOV(0.2)
 
-	if self.ScopeSound != "" then
+	if self.ScopeSound ~= "" then
 		self:EmitSound(self.ScopeSound)
 	end
 end
@@ -97,11 +97,11 @@ if CLIENT then
 			return
 		end
 
-		return self:GetScopeIndex() != 0 and UseScopes:GetBool()
+		return self:GetScopeIndex() ~= 0 and UseScopes:GetBool()
 	end
 
 	function SWEP:ShouldHideCrosshair()
-		if self.UseScope and self:GetScopeIndex() != 0 and UseScopes:GetBool() then
+		if self.UseScope and self:GetScopeIndex() ~= 0 and UseScopes:GetBool() then
 			return false
 		else
 			return self:IsReloading()
