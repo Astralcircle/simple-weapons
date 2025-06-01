@@ -60,7 +60,7 @@ SWEP.NPCData = {
 	Rest = {SWEP.Primary.Delay * 3, SWEP.Primary.Delay * 5}
 }
 
-list.Add("NPCUsableWeapons", {class = "simple_css_sg550", title = "Simple Weapons: " .. SWEP.PrintName})
+list.Add("NPCUsableWeapons", {class = "simple_css_sg550", title = SWEP.PrintName})
 
 -- Dynamic Weapon Reverb support
 SWEP.dwr_customAmmoType = "smg1"

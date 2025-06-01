@@ -61,4 +61,4 @@ SWEP.NPCData = {
 	Rest = {SWEP.Primary.Delay, SWEP.Primary.Delay * 2}
 }
 
-list.Add("NPCUsableWeapons", {class = "simple_css_xm1014", title = "Simple Weapons: " .. SWEP.PrintName})
+list.Add("NPCUsableWeapons", {class = "simple_css_xm1014", title = SWEP.PrintName})

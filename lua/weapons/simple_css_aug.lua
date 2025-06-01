@@ -58,7 +58,7 @@ SWEP.NPCData = {
 	Rest = {60 / 429 * 3, 60 / 429 * 5}
 }
 
-list.Add("NPCUsableWeapons", {class = "simple_css_aug", title = "Simple Weapons: " .. SWEP.PrintName})
+list.Add("NPCUsableWeapons", {class = "simple_css_aug", title = SWEP.PrintName})
 
 function SWEP:GetDelay()
 	return self:GetScopeIndex() > 0 and 60 / 429 or 60 / 666

@@ -62,7 +62,7 @@ SWEP.NPCData = {
 	Rest = {1, 3}
 }
 
-list.Add("NPCUsableWeapons", {class = "simple_css_scout", title = "Simple Weapons: " .. SWEP.PrintName})
+list.Add("NPCUsableWeapons", {class = "simple_css_scout", title = SWEP.PrintName})
 
 if SERVER then
 	function SWEP:GetNPCBulletSpread(prof)
