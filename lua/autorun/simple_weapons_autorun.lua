@@ -99,7 +99,7 @@ include("simple_weapons/sh_enums.lua")
 include("simple_weapons/sh_hooks.lua")
 
 if SERVER then
-	include("simple_weapons/cl_ui.lua")
-else
 	AddCSLuaFile("simple_weapons/cl_ui.lua")
+else
+	include("simple_weapons/cl_ui.lua")
 end
