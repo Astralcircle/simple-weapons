@@ -57,7 +57,10 @@ function SWEP:GetRange()
 end
 
 function SWEP:GetZoom()
-	return (self:GetScopeIndex() == 0 and 1) or (istable(self.ScopeZoom) and self.ScopeZoom[index] or self.ScopeZoom)
+	local index = self:GetScopeIndex()
+	if index == 0 then return 1 end
+	
+	return istable(self.ScopeZoom) and self.ScopeZoom[index] or self.ScopeZoom
 end
 
 function SWEP:CycleScope()
@@ -99,7 +102,7 @@ if CLIENT then
 
 	function SWEP:ShouldHideCrosshair()
 		if self.UseScope and self:GetScopeIndex() != 0 and UseScopes:GetBool() then
-			return self:GetLowered()
+			return false
 		else
 			return self:IsReloading()
 		end
