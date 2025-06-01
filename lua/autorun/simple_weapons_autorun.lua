@@ -52,13 +52,13 @@ if CLIENT then
 			pnl:Help("Configure you're weapons here")
 
 			local convars = {
-				simple_weapons_auto_reload = true,
-				simple_weapons_scopes = true,
-				simple_weapons_swayscale = true,
-				simple_weapons_bobscale = true,
-				simple_weapons_vm_offset_x = true,
-				simple_weapons_vm_offset_y = true,
-				simple_weapons_vm_offset_z = true
+				simple_weapons_auto_reload = GetConVar("simple_weapons_auto_reload"):GetDefault(),
+				simple_weapons_scopes = GetConVar("simple_weapons_scopes"):GetDefault(),
+				simple_weapons_swayscale = GetConVar("simple_weapons_swayscale"):GetDefault(),
+				simple_weapons_bobscale = GetConVar("simple_weapons_bobscale"):GetDefault(),
+				simple_weapons_vm_offset_x = GetConVar("simple_weapons_vm_offset_x"):GetDefault(),
+				simple_weapons_vm_offset_y = GetConVar("simple_weapons_vm_offset_y"):GetDefault(),
+				simple_weapons_vm_offset_z = GetConVar("simple_weapons_vm_offset_z"):GetDefault()
 			}
 
 			pnl:ToolPresets("simple_weapons_cl", convars)
