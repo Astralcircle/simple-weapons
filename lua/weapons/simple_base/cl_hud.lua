@@ -1,6 +1,3 @@
-simple_weapons.Include("Convars")
-simple_weapons.Include("Enums")
-
 function SWEP:DoDrawCrosshair(x, y)
 	if self.OverrideCrosshairDraw then
 		return self:OverrideCrosshairDraw(x, y)
@@ -22,9 +19,9 @@ function SWEP:DrawCrosshair(x, y)
 end
 
 function SWEP:CustomAmmoDisplay()
-	if self.AmmoType == AMMO_NONE then
+	if self.AmmoType == 0 then
 		return {Draw = false}
-	elseif self.AmmoType == AMMO_INTERNAL then
+	elseif self.AmmoType == 3 then
 		return {
 			Draw = true,
 			PrimaryClip = self:Clip1()

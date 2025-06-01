@@ -1,7 +1,6 @@
 AddCSLuaFile()
 
 simple_weapons.Include("Convars")
-simple_weapons.Include("Enums")
 
 function SWEP:HandleReloadAbort()
 	if self:IsReloading() then
@@ -20,7 +19,7 @@ function SWEP:IsReloading()
 end
 
 function SWEP:CanReload()
-	if self.AmmoType != AMMO_NORMAL then
+	if self.AmmoType != 1 then
 		return false
 	end
 

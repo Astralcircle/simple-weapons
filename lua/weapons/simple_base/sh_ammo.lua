@@ -1,22 +1,21 @@
 AddCSLuaFile()
 
 simple_weapons.Include("Convars")
-simple_weapons.Include("Enums")
 
 function SWEP:GetAmmoType()
 	if self.Primary.Ammo == "" and self.Primary.ClipSize == -1 then
-		return AMMO_NONE
+		return 0
 	elseif self.Primary.Ammo == "" then
-		return AMMO_INTERNAL
+		return 3
 	elseif self.Primary.ClipSize == -1 then
-		return AMMO_NOMAG
+		return 2
 	else
-		return AMMO_NORMAL
+		return 1
 	end
 end
 
 function SWEP:ConsumeAmmo()
-	if self.AmmoType == AMMO_NONE then
+	if self.AmmoType == 0 then
 		return
 	end
 
@@ -24,7 +23,7 @@ function SWEP:ConsumeAmmo()
 	local cost = primary.Cost
 	local ply = self:GetOwner()
 
-	if self.AmmoType == AMMO_NOMAG then
+	if self.AmmoType == 2 then
 		cost = math.min(cost, ply:GetAmmoCount(primary.Ammo))
 
 		ply:RemoveAmmo(cost, primary.Ammo)
@@ -34,9 +33,9 @@ function SWEP:ConsumeAmmo()
 end
 
 function SWEP:GetAmmo()
-	if self.AmmoType == AMMO_NORMAL or self.AmmoType == AMMO_INTERNAL then
+	if self.AmmoType == 1 or self.AmmoType == 3 then
 		return self:Clip1()
-	elseif self.AmmoType == AMMO_NOMAG then
+	elseif self.AmmoType == 2 then
 		return self:GetOwner():GetAmmoCount(self.Primary.Ammo)
 	end
 

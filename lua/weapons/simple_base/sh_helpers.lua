@@ -1,7 +1,6 @@
 AddCSLuaFile()
 
 simple_weapons.Include("Convars")
-simple_weapons.Include("Enums")
 
 function SWEP:HasCameraControl()
 	local ply = self:GetOwner()
@@ -40,11 +39,11 @@ function SWEP:GetViewModel(index)
 end
 
 function SWEP:IsEmpty()
-	if self.AmmoType == AMMO_NORMAL then
+	if self.AmmoType == 1 then
 		return self:Clip1() < self.Primary.Cost
-	elseif self.AmmoType == AMMO_NOMAG then
+	elseif self.AmmoType == 2 then
 		return self:GetOwner():GetAmmoCount(self.Primary.Ammo) < self.Primary.Cost
-	elseif self.AmmoType == AMMO_INTERNAL then
+	elseif self.AmmoType == 3 then
 		return self:Clip1() < self.Primary.Cost
 	end
 
