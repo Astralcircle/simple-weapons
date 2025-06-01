@@ -75,23 +75,9 @@ function SWEP:AltFire()
 	self:SetSuppressed(suppressed)
 	self:SendTranslatedWeaponAnim(suppressed and ACT_VM_ATTACH_SILENCER or ACT_VM_DETACH_SILENCER)
 
-	-- Dynamic Weapon Reverb support
-	self.dwr_customIsSuppressed = self:GetSuppressed()
-
-	if game.SinglePlayer() then
-		self:CallOnClient("UpdateReverb", tostring(suppressed))
-	end
-
 	local duration = CurTime() + self:SequenceDuration()
-
 	self:SetNextFire(duration)
 	self:SetNextIdle(duration)
-end
-
-if CLIENT then
-	function SWEP:UpdateReverb(bool)
-		self.dwr_customIsSuppressed = tobool(bool)
-	end
 end
 
 function SWEP:EmitFireSound()
