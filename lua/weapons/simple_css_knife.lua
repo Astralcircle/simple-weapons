@@ -24,7 +24,7 @@ SWEP.Primary = {
 	ChargeTime = 0.4,
 
 	Light = {
-		Damage = 24,
+		Damage = 50,
 		DamageType = DMG_SLASH,
 
 		Range = 75,
@@ -36,7 +36,7 @@ SWEP.Primary = {
 	},
 
 	Heavy = {
-		Damage = 55,
+		Damage = 65,
 		DamageType = DMG_SLASH,
 
 		Range = 65,

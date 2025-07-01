@@ -27,7 +27,7 @@ SWEP.Primary = {
 	ClipSize = 25,
 	DefaultClip = 100,
 
-	Damage = 16,
+	Damage = 30,
 	Delay = 60 / 571,
 
 	Range = 900,

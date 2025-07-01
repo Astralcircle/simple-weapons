@@ -27,12 +27,12 @@ SWEP.Primary = {
 	ClipSize = 8,
 	DefaultClip = 32,
 
-	Damage = 18,
-	Count = 6,
+	Damage = 26,
+	Count = 9,
 
 	Delay = 60 / 68,
 
-	Range = 400,
+	Range = 200,
 	Accuracy = 24,
 
 	Recoil = {
